@@ -13,7 +13,7 @@ html {
 
 body {
     font: normal 75% Arial, 'poppins', sans-serif;
-    /* background-image: url('/asset/bg2.png'); */
+    /* background-image: url('asset/bg2.png'); */
     /* background: linear-gradient(65.37881624148599deg, rgba(41, 45, 54, 1) 26.40942418557833%, rgba(41, 45, 54, 1) 64.08426175878478%, rgba(237, 49, 96, 1) 64.17311750777819%, rgba(237, 49, 96, 1) 69.06018370241581%); */
 }
 
@@ -32,7 +32,7 @@ body {
     justify-content: space-between;
     align-items: center;
     min-height: 100%;
-    background-image: url('/asset/6.jpg');
+    background-image: url('asset/6.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -120,7 +120,7 @@ canvas {
   min-height: fit-content;
     margin: 0;
     /* display: flex; */
-    background-image: url('/asset/10.jpg');
+    background-image: url('asset/10.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -302,7 +302,7 @@ h5 {
     min-height: 100vh;
   
     margin: 0;
-    background-image: url('/asset/43.jpg');
+    background-image: url('asset/43.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -474,7 +474,7 @@ p {
     /* border-radius: 25px; */
     box-shadow: rgb(104 139 255 / 10%) 0px 48px 100px 0px, rgb(17 12 46 / 15%) 0px 30px 100px 0px;
     /* background: linear-gradient( 128deg, rgba(115, 212, 255, 1) 0%, rgba(70, 85, 187, 1) 100%); */
-    background-image: url('/asset/5799725.jpg');
+    background-image: url('asset/5799725.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -519,7 +519,7 @@ h2 {
    min-height: fit-content;
     box-shadow: rgb(104 139 255 / 10%) 0px 48px 100px 0px, rgb(17 12 46 / 15%) 0px 30px 100px 0px;
     /* background: linear-gradient( 128deg, rgba(115, 212, 255, 1) 0%, rgba(70, 85, 187, 1) 100%); */
-    background-image: url('/asset/contact\ \(2\).jpg');
+    background-image: url('asset/contact\ \(2\).jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
