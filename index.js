@@ -122,3 +122,161 @@ $(function() {
       */
     });
   });
+
+
+
+
+//   const cardS = document.querySelectorAll('button')
+
+// const Observer = new IntersectionObserver(entries =>{
+//     entries.forEach(element => {
+//     console.log(element);
+        
+//     });
+// })
+
+
+// Observer.observe(cardS)
+
+// cardS.forEach(element => {
+//     element.addEventListener("click", function(event) {console.log(event);});
+// });
+var timerStart = Date.now();
+localStorage.setItem('startTime', '')
+// localStorage.setItem('close', '')
+
+var currentdate = new Date(); 
+var datetime = "Last Sync: " + currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getFullYear() + " @ "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
+                console.log('l');
+                console.log('start time : '+ datetime) 
+                localStorage.setItem('startTime', datetime)
+                document.getElementById("demo").innerHTML = localStorage.getItem("startTime");
+
+
+                entryTime = datetime;
+                existTime = ''
+
+                clickArr = [];
+                userdata = [];
+addEventListener('click', (event) => {
+console.log(event);
+console.log(event.path[10].navigator.userAgentData);
+
+console.log('start time : ') + timerStart;
+
+const clickObj = {
+    innerText:event.target.innerText,
+    tagName:event.target.tagName,
+    link:event.target.href
+
+}
+userdata.push(event.path[10].navigator.userAgentData)
+
+clickArr.push(clickObj)
+    console.log('text:'+ event.target.innerText);
+    console.log('tag:'+event.target.tagName);
+
+    console.log('location:'+event.target.href);
+});
+
+
+existTime = ''
+window.onbeforeunload = confirmExit;
+function confirmExit(){
+    alert("confirm exit is being called");
+    var currentdate1 = new Date(); 
+        var datetime1 = "Last Sync: " + currentdate1.getDate() + "/"
+                        + (currentdate1.getMonth()+1)  + "/" 
+                        + currentdate1.getFullYear() + " @ "  
+                        + currentdate1.getHours() + ":"  
+                        + currentdate1.getMinutes() + ":" 
+                        + currentdate1.getSeconds();
+                        console.log('l');
+                        console.log('close time : '+ datetime1) 
+       localStorage.setItem('close', datetime1)
+       existTime = datetime1
+       device = ''
+
+if( userdata[0].mobile === false){
+    device = 'Windoes'
+}else{
+    device = 'Mobile'
+}
+       const Api = {
+        entryTime: entryTime,
+     existTime: existTime,
+     devideType: device,
+     deviceOs: userdata[0].platform,
+      systemOs: userdata,
+    clickArr: clickArr
+
+}
+console.log( JSON.stringify(Api));
+
+
+fetch("http://localhost:4000/api/designcreate", {
+    method: "POST",
+    headers: {'Content-Type': 'application/json'}, 
+    body: JSON.stringify(Api)
+  }).then(res => {
+    console.log("Request complete! response:", res);
+  });
+    return false;
+}
+
+
+function finalCall() {
+
+
+
+    const Api = {
+        entryTime: entryTime,
+     existTime: existTime,
+      systemOs: userdata,
+    clickArr: clickArr
+
+}
+console.log( JSON.stringify(Api));
+
+
+fetch("http://localhost:4000/api/designcreate", {
+    method: "POST",
+    headers: {'Content-Type': 'application/json'}, 
+    body: JSON.stringify(Api)
+  }).then(res => {
+    console.log("Request complete! response:", res);
+  });
+
+    // fetch('http://localhost:4000/api/designcreate', {
+    //     method: 'POST',
+    //     body: JSON.stringify(data)
+    // })
+    // .then(response => response.json())
+    // .then(response => console.log(JSON.stringify(response)))
+
+
+}
+
+
+
+// getapi();
+  
+// Defining async function
+ function getapi() {
+    const api_url = 
+      "https://employeedetails.free.beeceptor.com/my/api/path";
+    
+    // Storing response
+   const muru =  fetch('https://jsonplaceholder.typicode.com/todos/1')
+    .then(response => response.json())
+    .then(json => {console.log(json);
+         return json})
+    console.log(muru);
+
+
+}
